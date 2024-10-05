@@ -17,14 +17,16 @@ public partial class Client : Node3D
 		startClient();
 		GD.Print("Client Online");
 
-		connectToServer(udpClient);
+		//Connect to server
+		sendMessageToServer(_playerId);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (Input.IsActionJustPressed("mandar")) {
-			send_to(udpClient, "Hello");
+		if (Input.IsActionJustPressed("mandar")) 
+		{
+			sendMessageToServer("Hello");
 		}
 	}
 
@@ -32,33 +34,41 @@ public partial class Client : Node3D
 	{
 		while (true) 
 		{
-			var result = await udpClient.ReceiveAsync();
-			string message = Encoding.ASCII.GetString(result.Buffer);
-			GD.Print(message);
+			try
+			{
+				var result = await udpClient.ReceiveAsync();
+				string message = Encoding.ASCII.GetString(result.Buffer);
+				GD.Print(message);
+			}
+			catch (Exception e)
+			{
+				GD.PrintErr("Error receiving data: ", e);
+			}
 		}
 	}
 
+	//Make the client be able to recieve messages
 	private void startClient() 
 	{
-		udpClient = new UdpClient(clientPort); // Initialize the UDP client to listen for messages
+		udpClient = new UdpClient(clientPort);
 
 		_playerId = Guid.NewGuid().ToString();
 
 		StartRecievingAsync();
 	}
 
-	private void connectToServer(UdpClient client) 
+	private async void sendMessageToServer(String message) 
 	{
-		string message = _playerId;
-		byte[] data = Encoding.ASCII.GetBytes(message);
-		client.Send(data, data.Length, serverInfo.Item1, serverInfo.Item2);
-		
-	}
+		if (string.IsNullOrWhiteSpace(message)) return;
 
-	private void send_to(UdpClient client, String message) 
-	{
 		byte[] data = Encoding.ASCII.GetBytes(message);
-
-		client.Send(data, data.Length, serverInfo.Item1, serverInfo.Item2);
+		try
+		{
+			await udpClient.SendAsync(data, data.Length, serverInfo.Item1, serverInfo.Item2);
+		}
+		catch (Exception e)
+		{
+			GD.PrintErr("Couldn't send message to server: ", e);
+		}
 	}
 }

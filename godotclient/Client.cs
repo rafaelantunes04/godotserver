@@ -24,7 +24,7 @@ public partial class Client : Node3D
 	public override void _Process(double delta)
 	{
 		if (Input.IsActionJustPressed("mandar")) {
-			sendUDP(udpClient);
+			send_to(udpClient, "Hello");
 		}
 	}
 
@@ -55,9 +55,8 @@ public partial class Client : Node3D
 		
 	}
 
-	private void sendUDP(UdpClient client) 
+	private void send_to(UdpClient client, String message) 
 	{
-		string message = "Hello from C#";
 		byte[] data = Encoding.ASCII.GetBytes(message);
 
 		client.Send(data, data.Length, serverInfo.Item1, serverInfo.Item2);

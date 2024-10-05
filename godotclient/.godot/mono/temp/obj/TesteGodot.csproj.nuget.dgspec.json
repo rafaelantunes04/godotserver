@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rafael Antunes\\Desktop\\godotteste\\testegodot\\TesteGodot.csproj": {}
+    "C:\\Users\\Rafael Antunes\\Desktop\\godotteste\\godotclient\\TesteGodot.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rafael Antunes\\Desktop\\godotteste\\testegodot\\TesteGodot.csproj": {
+    "C:\\Users\\Rafael Antunes\\Desktop\\godotteste\\godotclient\\TesteGodot.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rafael Antunes\\Desktop\\godotteste\\testegodot\\TesteGodot.csproj",
+        "projectUniqueName": "C:\\Users\\Rafael Antunes\\Desktop\\godotteste\\godotclient\\TesteGodot.csproj",
         "projectName": "TesteGodot",
-        "projectPath": "C:\\Users\\Rafael Antunes\\Desktop\\godotteste\\testegodot\\TesteGodot.csproj",
+        "projectPath": "C:\\Users\\Rafael Antunes\\Desktop\\godotteste\\godotclient\\TesteGodot.csproj",
         "packagesPath": "C:\\Users\\Rafael Antunes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rafael Antunes\\Desktop\\godotteste\\testegodot\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "C:\\Users\\Rafael Antunes\\Desktop\\godotteste\\godotclient\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rafael Antunes\\AppData\\Roaming\\NuGet\\NuGet.Config"

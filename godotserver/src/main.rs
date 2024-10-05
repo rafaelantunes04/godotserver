@@ -35,6 +35,7 @@ fn main() {
                 if is_valid_guid(&message){
                     if message != player_list.get(&src).expect("Erro") {
                         println!("Packet from {} just got rejected due to having session mismatch", src );
+                        send_to_client(&socket, src, "Session Mismatch");
                         player_list.remove(&src);
                     }
                 } else {
@@ -44,7 +45,7 @@ fn main() {
                 if is_valid_guid(&message) {
                     player_list.insert(src, message.to_string());
                     println!("Player from {} just connected to the server", src);
-                    let _bytes_sent = socket.send_to(b"Welcome to the server", src);
+                    send_to_client(&socket, src, "Welcome to the Server");
                 } else {
                     println!("Packet from {} just got rejected due to not being in the server", src)
                 }
@@ -58,4 +59,10 @@ fn main() {
 fn is_valid_guid(guid: &str) -> bool {
     let guid_regex = regex::Regex::new(r"^[{(]?([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})[)}]?$").unwrap();
     guid_regex.is_match(guid)
+}
+
+fn send_to_client(socket: &UdpSocket, src: SocketAddr, message: &str) {
+    if let Err(e) = socket.send_to(message.as_bytes(), src) {
+        println!("Couldnt send message to {}: {}", src, e);
+    }
 }

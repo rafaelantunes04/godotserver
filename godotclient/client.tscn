@@ -2,5 +2,7 @@
 
 [ext_resource type="Script" path="res://Client.cs" id="1_s63jp"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_s63jp")

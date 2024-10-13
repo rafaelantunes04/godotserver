@@ -34,3 +34,4 @@ C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debu
 C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\TesteGodot.genruntimeconfig.cache
 C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\ref\TesteGodot.dll
 C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\bin\Debug\Open.Nat.dll

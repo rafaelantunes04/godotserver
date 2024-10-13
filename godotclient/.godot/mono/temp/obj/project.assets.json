@@ -49,6 +49,19 @@
             "related": ".xml"
           }
         }
+      },
+      "Open.NAT/2.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Open.Nat.dll": {
+            "related": ".XML"
+          }
+        },
+        "runtime": {
+          "lib/net45/Open.Nat.dll": {
+            "related": ".XML"
+          }
+        }
       }
     }
   },
@@ -121,6 +134,23 @@
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
+    },
+    "Open.NAT/2.1.0": {
+      "sha512": "cFa5GY3a1LYpgyCkCfi4kY3XyArNNGjx36tQVfY9bQEXQBo8zx9rFKkDrDjOEupy31FPPH/mqLClddLNUl41hQ==",
+      "type": "package",
+      "path": "open.nat/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net35/Open.Nat.XML",
+        "lib/net35/Open.Nat.dll",
+        "lib/net35/System.Threading.dll",
+        "lib/net35/System.Threading.xml",
+        "lib/net45/Open.Nat.XML",
+        "lib/net45/Open.Nat.dll",
+        "open.nat.2.1.0.nupkg.sha512",
+        "open.nat.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -128,7 +158,8 @@
       "Godot.SourceGenerators >= 4.3.0",
       "GodotSharp >= 4.3.0",
       "GodotSharpEditor >= 4.3.0",
-      "Newtonsoft.Json >= 13.0.3"
+      "Newtonsoft.Json >= 13.0.3",
+      "Open.Nat >= 2.1.0"
     ]
   },
   "packageFolders": {
@@ -188,6 +219,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "Open.Nat": {
+            "target": "Package",
+            "version": "[2.1.0, )"
           }
         },
         "imports": [
@@ -223,5 +258,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Open.NAT 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Open.NAT",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

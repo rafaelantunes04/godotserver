@@ -1,6 +1,5 @@
 using System;
 using Godot;
-using Newtonsoft.Json;
 
 namespace Rb
 {
@@ -10,14 +9,14 @@ namespace Rb
 
 		public PlayerInfo playerInfo = new PlayerInfo();
 
-		public override void _Ready()
+		public override async void _Ready()
 		{
-			String session_id = connectionHandler.StartClient(playerInfo);
+			string session_id = await connectionHandler.StartClient(playerInfo);
 			playerInfo.populate(session_id, "jogador");
 			GD.Print("Client Online");
 		
 			//Connect to server
-			connectionHandler.connect(new Tuple<string, int>("127.0.0.1", 5000), playerInfo.session_id);
+			connectionHandler.connect(new Tuple<string, int>("85.139.143.153", 5000), playerInfo.session_id);
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.

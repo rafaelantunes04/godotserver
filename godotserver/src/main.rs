@@ -5,9 +5,17 @@ use tokio::{
 };
 use core::str;
 use std::{
-    collections::HashMap, fmt, net::SocketAddr, sync::{Arc, Mutex}
+    collections::HashMap, net::SocketAddr, sync::{Arc, Mutex}
 };
 
+
+
+//CLASSES
+
+
+//Packet Type
+/// This is an enum used to define the utility of the packet sent or recieved
+/// 
 #[derive(Serialize, Deserialize)]
 pub enum PacketType {
     Chat,
@@ -17,6 +25,11 @@ pub enum PacketType {
     Misc,
 }
 
+
+
+//Player State
+/// This is an enum used in the player to define the state of the player
+/// 
 #[derive(Serialize, Deserialize)]
 pub enum PlayerState {
     Loading,
@@ -25,36 +38,34 @@ pub enum PlayerState {
     Error,
 }
 
-impl fmt::Display for PlayerState {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        // Match on the enum variant and return a corresponding string
-        let state = match self {
-            PlayerState::Loading => "Loading",
-            PlayerState::Dead => "Dead",
-            PlayerState::Alive => "Alive",
-            PlayerState::Error => "Error",
-        };
-        write!(f, "{}", state)
-    }
-}
 
+
+//Packet
+/// This is the object that is sent as json in the udp packet
+/// 
+/// # Fields
+/// - `packet-type`: With the options in range of [`PacketType`], is used to define the utility of the packet.
+/// - `content`: With the type of String, is used as the content of the packet, can contain json or just a normal message.
 #[derive(Serialize, Deserialize)]
 pub struct Packet {
     pub packet_type: PacketType,
     pub content: String,
 }
 
-impl Packet {
-    pub fn as_bytes(&self) -> Vec<u8> {
-        self.content.as_bytes().to_vec()
-    }
-}
 
 
+//Player
+/// This is the object that is used to contain a player information
+/// 
+/// # Fields
+/// - `name`: With the type of String, contains the player name.
+/// - `health`: With the type of u8, contains a value between 0 and 255 for the player's health.
+/// - `session_id`: With the type of String, contains the guid of a player's session.
+/// - `state`: With the options in range of [`PlayerState`], represents the state the player is in.
 #[derive(Serialize, Deserialize)]
 pub struct Player {
     name: String,
-    health: i8,
+    health: u8,
     session_id: String,
     state: PlayerState,
 }
@@ -66,6 +77,7 @@ async fn main() -> std::io::Result<()> {
     let player_list: Arc<Mutex<HashMap<SocketAddr, Player>>> = Arc::new(Mutex::new(HashMap::new()));
     
     println!("Online");
+    
     //Player Connection Checker
     let player_list_task = Arc::clone(&player_list);
     tokio::spawn(async move {
@@ -74,13 +86,11 @@ async fn main() -> std::io::Result<()> {
 
             let player_list = player_list_task.lock().unwrap();
 
-            if player_list.is_empty() {
-                continue
-            }
-
-            for (addr, player) in player_list.iter() {
-                println!("Address: {}, Name: {}, Health: {}, Session: {}, State: {}", addr, player.name, player.health, player.session_id, player.state);
-            }
+            if !player_list.is_empty() {
+                for (addr, player) in player_list.iter() {
+                    println!("Address: {}, Name: {}, Health: {}, Session: {}", addr, player.name, player.health, player.session_id);
+                }
+            }            
         }
     });
     

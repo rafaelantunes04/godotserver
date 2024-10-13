@@ -4,6 +4,8 @@ using System.Net.Sockets;
 using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using Open.Nat;
+using System.Threading.Tasks;
 
 namespace Rb {
 	public class ConnectionHandler
@@ -26,7 +28,7 @@ namespace Rb {
 		{
 			[JsonConverter(typeof(StringEnumConverter))]
 			public PacketType packet_type { get; set; }
-			public String content { get; set; }
+			public string content { get; set; }
 		}
 		
 		//Start Udp Packet Reciever
@@ -108,14 +110,16 @@ namespace Rb {
 		}
 	
 		//Start Client, starting Packet Reciever afterwards
-		public String StartClient(PlayerInfo playerInfo) 
+		public async Task<string> StartClient(PlayerInfo playerInfo) 
 		{
 			//fetch port
+			int internalPort = 0;
 			for (int port = 7777; port <= 8888; port++) 
 			{
 				try 
 				{
 					udpClient = new UdpClient(port);
+					internalPort = port;
 					break;
 				}
 				catch (SocketException) {}
@@ -123,14 +127,24 @@ namespace Rb {
 			if (udpClient == null)
 			{
 				GD.PrintErr("Couldnt bind port");
+				return null;
 			}
+
+			//Upnp setup
+			var discoverer = new NatDiscoverer();
+			var cts = new System.Threading.CancellationTokenSource(20000);
+			NatDevice device = await discoverer.DiscoverDeviceAsync(PortMapper.Upnp, cts);
+
+			// Map the port
+			await device.CreatePortMapAsync(new Mapping(Protocol.Udp, internalPort, internalPort, "Client UDP Server"));
+
 			StartReciever(playerInfo);
-			String session_id = Guid.NewGuid().ToString();
+			string session_id = Guid.NewGuid().ToString();
 			return session_id;
 		}
 	
 		//Connect to the server in the serverInfo
-		public void connect(Tuple<string, int> _serverInfo, String session_id)
+		public void connect(Tuple<string, int> _serverInfo, string session_id)
 		{
 			serverInfo = _serverInfo;
 			SendPacketToServer(new Packet { packet_type = PacketType.Misc, content = session_id });

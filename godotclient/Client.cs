@@ -23,7 +23,7 @@ namespace Rb
 		public override void _Process(double delta)
 		{
 			if (Input.IsActionJustPressed("mandar")) 
-			{
+			{	
 				connectionHandler.SendPacketToServer(new ConnectionHandler.Packet { packet_type = ConnectionHandler.PacketType.Chat, content= "Hello" });
 			}
 		}

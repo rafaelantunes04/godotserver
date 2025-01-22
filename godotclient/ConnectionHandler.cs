@@ -78,6 +78,10 @@ namespace Rb {
 								break;
 							
 							case PacketType.Misc:
+								if (packet.content == "Ping")
+								{
+									SendPacketToServer(new Packet { packet_type = PacketType.Misc, content = "Pong".ToString() });
+								}
 								break;
 						}
 					}

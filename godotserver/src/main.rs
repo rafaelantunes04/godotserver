@@ -1,12 +1,20 @@
 use serde::{Serialize, Deserialize};
 use tokio::{
     net::UdpSocket,
+    sync::Mutex,
     time::{sleep, Duration}
 };
 use core::str;
 use std::{
-    collections::HashMap, net::SocketAddr, sync::{Arc, Mutex}
+    collections::HashMap, net::SocketAddr, sync::Arc, io
 };
+
+
+// ERRO AO DISCONECTAR DE CLIENTES, PROBLEMA É EM TIRAR DA HASHTABLE O JOGADOR QUE ESTA A DAR PROBLEMAS POIS ESTA A SER FEITO EM UMA COROTINA DIFERENTE
+// QUE MANDA MENSAGEM, SENDO QUE TEM O RESULTADO NA RECEPÇÃO
+
+
+
 
 
 
@@ -30,7 +38,7 @@ pub enum PacketType {
 //Player State
 /// This is an enum used in the player to define the state of the player
 /// 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Clone)]
 pub enum PlayerState {
     Loading,
     Dead,
@@ -62,7 +70,7 @@ pub struct Packet {
 /// - `health`: With the type of u8, contains a value between 0 and 255 for the player's health.
 /// - `session_id`: With the type of String, contains the guid of a player's session.
 /// - `state`: With the options in range of [`PlayerState`], represents the state the player is in.
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Clone)]
 pub struct Player {
     name: String,
     health: u8,
@@ -71,44 +79,57 @@ pub struct Player {
 }
 
 #[tokio::main]
-async fn main() -> std::io::Result<()> {
-    let socket = UdpSocket::bind("127.0.0.1:5000").await?;
+async fn main() -> io::Result<()> {
 
+    let socket = Arc::new(UdpSocket::bind("127.0.0.1:5000").await?);
     let player_list: Arc<Mutex<HashMap<SocketAddr, Player>>> = Arc::new(Mutex::new(HashMap::new()));
     
-    println!("Online");
+    println!("Server is Online");
     
-    //Player Connection Checker
+    // Player Connection Checker
+    let socket_task = Arc::clone(&socket);
     let player_list_task = Arc::clone(&player_list);
+    
     tokio::spawn(async move {
         loop {
-            sleep(Duration::from_secs(3)).await;
-
-            let player_list = player_list_task.lock().unwrap();
-
-            if !player_list.is_empty() {
-                for (addr, player) in player_list.iter() {
-                    println!("Address: {}, Name: {}, Health: {}, Session: {}", addr, player.name, player.health, player.session_id);
+            sleep(Duration::from_secs(5)).await;
+            let mut player_list = player_list_task.lock().await;
+            let addrs: Vec<_> = player_list.keys().cloned().collect();
+            for addr in addrs {
+                let packet = Packet { packet_type: PacketType::Misc, content: "Ping".to_string() };
+                if let Err(e) = send_to_client(&socket_task, &addr, &packet).await {
+                    println!("Error sending to {}: {:?}", addr, e);
+                    player_list.remove(&addr);
+                    println!("Address {} kicked.", addr);
                 }
-            }            
+            }
         }
     });
     
     //Main Server Code
+    let socket_receiver = Arc::clone(&socket);
     let player_list_server = Arc::clone(&player_list);
     loop {  
         let mut buf = [0; 1024];
-        let (len, addr) = socket.recv_from(&mut buf).await?;
+
+        let len: usize;
+        let addr: SocketAddr;
+
+        match socket_receiver.recv_from(&mut buf).await {
+            Ok(data) => {(len, addr) = data}
+            Err(_) => {continue}
+        }        
+        
         let packet = decode_udp_packet(&buf[..len]);
         
-        let mut players = player_list_server.lock().unwrap();
+        let mut players = player_list_server.lock().await;
 
         //check if the ip address is in the playerlist
         if players.contains_key(&addr) {
             match packet.packet_type {
                 PacketType::Chat => {
                     for (addr, _) in players.iter() {
-                        send_to_client(&socket, addr, &Packet { packet_type: PacketType::Chat, content: ( players.get(&addr).unwrap().name.to_string() + ": " + &packet.content) }).await;
+                        send_to_client(&socket_receiver, addr, &Packet { packet_type: PacketType::Chat, content: ( players.get(&addr).unwrap().name.to_string() + ": " + &packet.content) }).await;
                     }
                 }
                 
@@ -122,15 +143,15 @@ async fn main() -> std::io::Result<()> {
                             if let Some(serverplayerdata) = players.get_mut(&addr) {
                                 if serverplayerdata.session_id != player.session_id {
                                     println!("Packet from {} just got rejected and kicked due to having session_id mismatch", addr );
-                                    send_to_client(&socket, &addr, &Packet { packet_type: PacketType::Misc, content: "Session Mismatch, Kicked".to_string() }).await;
+                                    send_to_client(&socket_receiver, &addr, &Packet { packet_type: PacketType::Misc, content: "Session Mismatch, Kicked".to_string() }).await;
                                     session_mismatch = true;
                                 } else {
                                     serverplayerdata.name = player.name;
                                     serverplayerdata.health = player.health;
                                     serverplayerdata.session_id = player.session_id;
                                     serverplayerdata.state = player.state;
-                                    send_to_client(&socket, &addr, &Packet { packet_type: PacketType::Chat, content: "Welcome to the server: ".to_string() + &serverplayerdata.name }).await;
-                                    send_to_client(&socket, &addr, &Packet { packet_type: PacketType::Sync, content: object_to_json(serverplayerdata) }).await;
+                                    send_to_client(&socket_receiver, &addr, &Packet { packet_type: PacketType::Chat, content: "Welcome to the server: ".to_string() + &serverplayerdata.name }).await;
+                                    send_to_client(&socket_receiver, &addr, &Packet { packet_type: PacketType::Sync, content: object_to_json(serverplayerdata) }).await;
                                 }
                                 if session_mismatch {
                                     players.remove(&addr);
@@ -162,16 +183,19 @@ async fn main() -> std::io::Result<()> {
                     if is_valid_guid(&packet.content) {
                         if packet.content != players.get(&addr).unwrap().session_id {
                             println!("Packet from {} just got rejected and kicked due to having session_id mismatch", addr );
-                            send_to_client(&socket, &addr, &Packet { packet_type: PacketType::Misc, content: "Session Mismatch, Kicked".to_string() }).await;
+                            send_to_client(&socket_receiver, &addr, &Packet { packet_type: PacketType::Misc, content: "Session Mismatch, Kicked".to_string() }).await;
                             players.remove(&addr);
                         }
+                    } 
+                    if &packet.content == "Pong" {
+                        println!("Player: {}, Confirmed Connection", &addr);
                     }
                 }
             }
         } else {
             //check if message is a guid to connect to the server
             if is_valid_guid(&packet.content) {
-                send_to_client(&socket, &addr, &Packet { packet_type: PacketType::Sync, content: "PlayerInfo".to_string() }).await;
+                send_to_client(&socket_receiver, &addr, &Packet { packet_type: PacketType::Sync, content: "PlayerInfo".to_string() }).await;
                 players.insert(addr, Player { name: "".to_string(), health: 0, session_id: packet.content, state: PlayerState::Loading });
                 println!("Player from {} just connected to the server", addr);
             } else {
@@ -186,13 +210,18 @@ fn is_valid_guid(guid: &str) -> bool {
     guid_regex.is_match(guid)
 }
 
-async fn send_to_client(socket: &UdpSocket, addr: &SocketAddr, packet: &Packet) {
+async fn send_to_client(socket: &UdpSocket, addr: &SocketAddr, packet: &Packet) -> io::Result<()> {
     let packet = serde_json::to_string::<Packet>(&packet).unwrap();
     let bites = packet.as_bytes();
-    if let Err(e) = socket.send_to(bites, addr).await {
-        println!("Couldnt send message to {}: {}", addr, e);
+    match socket.send_to(bites, addr).await {
+        Ok(_) => Ok(()),
+        Err(e) => {
+            println!("Could not send message to {}: {}", addr, e);
+            Err(e)
+        }
     }
 }
+
 fn decode_udp_packet(bytes: &[u8]) -> Packet {
     return serde_json::from_str::<Packet>(str::from_utf8(bytes).unwrap()).unwrap();
 }

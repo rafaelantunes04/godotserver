@@ -1,2 +1,6 @@
-res://client.tscn
-res://Client.cs
+res://scenes/main_menu/MainMenu.tscn
+res://scenes/main_menu/main_menu.tscn
+res://scenes/main_menu/start_game_popup.tscn
+res://scripts/client/Client.cs
+res://scripts/ui/start_game_popup.cs
+res://scripts/ui/main_menu.cs

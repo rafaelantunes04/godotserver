@@ -1,1 +1,10 @@
+MarginContainer
+VBoxContainer
+Panel
+HBoxContainer
+Button
+LineEdit
+TextEdit
+Label
 Control
+Node

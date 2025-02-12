@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scripts/client/Client.cs" id="1_s63jp"]
 
-[node name="Menu" type="Node"]
+[node name="Client" type="Node"]
 script = ExtResource("1_s63jp")

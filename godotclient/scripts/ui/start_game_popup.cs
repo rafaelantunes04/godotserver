@@ -66,7 +66,7 @@ public partial class start_game_popup : Control
 		if (nameInput.Text.Length > 0) 
 		{
 			Client clientInstance = client.Instantiate<Client>();
-			clientInstance.SetUsername(nameInput.Text);
+			clientInstance.Username = nameInput.Text;
 			GetParent().QueueFree();
 			GetTree().Root.AddChild(clientInstance);
 			GetTree().CurrentScene = clientInstance;

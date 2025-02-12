@@ -18,8 +18,6 @@ namespace Rb {
 		{
 			Chat,
 			Sync,
-			SyncHealth,
-			SyncState,
 			Misc,
 		}
 
@@ -70,14 +68,6 @@ namespace Rb {
 										
 								break;
 
-							case PacketType.SyncHealth:
-								playerInfo.health = (sbyte)int.Parse(packet.content);
-								break;
-							
-							case PacketType.SyncState:
-								playerInfo.state = JsonConvert.DeserializeObject<PlayerState>(packet.content);
-								break;
-							
 							case PacketType.Misc:
 								if (packet.content == "Ping")
 								{

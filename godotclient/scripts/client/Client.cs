@@ -8,6 +8,8 @@ namespace Rb {
 		private PlayerInfo playerInfo = new PlayerInfo();
 
 		public string Username { get; set; }
+		public string Address { get; set; }
+		public int Port { get; set; }
 
 		public override async void _Ready()
 		{
@@ -16,7 +18,7 @@ namespace Rb {
 			GD.Print("Client Online");
 
 			// Connect to server
-			networkManager.Connect("127.0.0.1", 5000, playerInfo.session_id);
+			networkManager.Connect(Address, Port, playerInfo.session_id);
 
 			// Start packet receiver
 			_ = networkManager.StartReceiver(HandlePacket);

@@ -219,6 +219,7 @@ async fn handle_packet(socket: &Arc<UdpSocket>, addr: &SocketAddr, packet: &Pack
 
 
 
+
 /// Handle New Connections Function
 /// 
 /// The function handle_new_connection is how the server reacts to new connections.
@@ -335,7 +336,7 @@ fn object_to_json<T: Serialize>(obj: &T) -> String {
 
 #[tokio::main]
 async fn main() -> io::Result<()> {
-    let socket = Arc::new(UdpSocket::bind("127.0.0.1:5000").await?);
+    let socket = Arc::new(UdpSocket::bind("0.0.0.0:25565").await?);
     let player_list = PlayerList::new();
 
     println!("Server is online.");

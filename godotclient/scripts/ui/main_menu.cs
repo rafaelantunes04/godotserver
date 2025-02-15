@@ -38,7 +38,7 @@ public partial class main_menu : Control
 
     public override void _Process(double delta)
     {
-        if (GetNodeOrNull<Control>("StartGamePopup") == null) 
+        if ((GetNodeOrNull<Control>("StartGamePopup") == null) && (GetNodeOrNull<Control>("AddressPopup") == null))
         {
             startButton.Disabled = false;
             optionsButton.Disabled = false;

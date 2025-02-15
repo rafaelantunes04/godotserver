@@ -1,37 +1,57 @@
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\bin\Debug\TesteGodot.deps.json
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\bin\Debug\TesteGodot.runtimeconfig.json
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\bin\Debug\TesteGodot.dll
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\bin\Debug\TesteGodot.pdb
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\bin\Debug\GodotSharp.dll
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\obj\Debug\TesteGodot.csproj.AssemblyReference.cache
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\obj\Debug\TesteGodot.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\obj\Debug\TesteGodot.AssemblyInfoInputs.cache
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\obj\Debug\TesteGodot.AssemblyInfo.cs
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\obj\Debug\TesteGodot.csproj.CoreCompileInputs.cache
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\obj\Debug\TesteGodot.csproj.Up2Date
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\obj\Debug\TesteGodot.dll
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\obj\Debug\refint\TesteGodot.dll
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\obj\Debug\TesteGodot.pdb
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\obj\Debug\TesteGodot.genruntimeconfig.cache
-C:\Users\Rafael Antunes\Desktop\godotteste\testegodot\.godot\mono\temp\obj\Debug\ref\TesteGodot.dll
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\bin\Debug\TesteGodot.deps.json
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\bin\Debug\TesteGodot.runtimeconfig.json
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\bin\Debug\TesteGodot.dll
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\bin\Debug\TesteGodot.pdb
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\bin\Debug\GodotSharp.dll
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\TesteGodot.csproj.AssemblyReference.cache
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\TesteGodot.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\TesteGodot.AssemblyInfoInputs.cache
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\TesteGodot.AssemblyInfo.cs
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\TesteGodot.csproj.CoreCompileInputs.cache
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\TesteGodot.sourcelink.json
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\TesteGodot.csproj.Up2Date
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\TesteGodot.dll
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\refint\TesteGodot.dll
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\TesteGodot.pdb
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\TesteGodot.genruntimeconfig.cache
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\obj\Debug\ref\TesteGodot.dll
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Rafael Antunes\Desktop\godotteste\godotclient\.godot\mono\temp\bin\Debug\Open.Nat.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/bin/Debug/TesteGodot.deps.json
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/bin/Debug/TesteGodot.runtimeconfig.json
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/bin/Debug/TesteGodot.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/bin/Debug/TesteGodot.pdb
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/bin/Debug/GodotSharp.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/bin/Debug/GodotSharpEditor.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/obj/Debug/TesteGodot.csproj.AssemblyReference.cache
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/obj/Debug/TesteGodot.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/obj/Debug/TesteGodot.AssemblyInfoInputs.cache
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/obj/Debug/TesteGodot.AssemblyInfo.cs
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/obj/Debug/TesteGodot.csproj.CoreCompileInputs.cache
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/obj/Debug/TesteGodot.csproj.Up2Date
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/obj/Debug/TesteGodot.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/obj/Debug/refint/TesteGodot.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/obj/Debug/TesteGodot.pdb
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/obj/Debug/TesteGodot.genruntimeconfig.cache
+C:/Users/Rafael Antunes/Desktop/godotteste/testegodot/.godot/mono/temp/obj/Debug/ref/TesteGodot.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/bin/Debug/TesteGodot.deps.json
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/bin/Debug/TesteGodot.runtimeconfig.json
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/bin/Debug/TesteGodot.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/bin/Debug/TesteGodot.pdb
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/bin/Debug/GodotSharp.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/bin/Debug/GodotSharpEditor.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.csproj.AssemblyReference.cache
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.AssemblyInfoInputs.cache
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.AssemblyInfo.cs
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.csproj.CoreCompileInputs.cache
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.sourcelink.json
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.csproj.Up2Date
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/obj/Debug/refint/TesteGodot.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.pdb
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.genruntimeconfig.cache
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/obj/Debug/ref/TesteGodot.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/bin/Debug/Newtonsoft.Json.dll
+C:/Users/Rafael Antunes/Desktop/godotteste/godotclient/.godot/mono/temp/bin/Debug/Open.Nat.dll
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/bin/Debug/TesteGodot.deps.json
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/bin/Debug/TesteGodot.runtimeconfig.json
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/bin/Debug/TesteGodot.dll
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/bin/Debug/TesteGodot.pdb
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/bin/Debug/GodotSharp.dll
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/bin/Debug/GodotSharpEditor.dll
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/bin/Debug/Newtonsoft.Json.dll
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/bin/Debug/Open.Nat.dll
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.csproj.AssemblyReference.cache
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.GeneratedMSBuildEditorConfig.editorconfig
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.AssemblyInfoInputs.cache
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.AssemblyInfo.cs
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.csproj.CoreCompileInputs.cache
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.sourcelink.json
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.csproj.Up2Date
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.dll
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/obj/Debug/refint/TesteGodot.dll
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.pdb
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/obj/Debug/TesteGodot.genruntimeconfig.cache
+/home/rick/Cenas_Rafa/godotserver/godotclient/.godot/mono/temp/obj/Debug/ref/TesteGodot.dll

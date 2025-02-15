@@ -1,9 +1,0 @@
-res://scenes/client.tscn
-res://scenes/main_menu/address_popup.tscn
-res://scripts/ui/start_game_popup.cs
-res://scenes/main_menu/start_game_popup.tscn
-res://scenes/main_menu/main_menu.tscn
-res://scripts/client/Client.cs
-res://scripts/ui/main_menu.cs
-res://scenes/main_menu/AddressPopup.cs
-res://scripts/ui/address_popup.cs

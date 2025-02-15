@@ -31,7 +31,7 @@ namespace Rb {
 				networkManager.SendPacket(new NetworkManager.Packet
 				{
 					packet_type = NetworkManager.PacketType.Chat,
-					content = "Hello"
+					content = "Teste"
 				});
 			}
 		}

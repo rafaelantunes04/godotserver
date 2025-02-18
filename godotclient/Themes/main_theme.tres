@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cy027krcedla1"]
+
+[ext_resource type="StyleBox" uid="uid://wpkfemwym7od" path="res://Themes/Styles/normal.tres" id="1_77fdp"]
+[ext_resource type="FontFile" uid="uid://cficx48yo08ax" path="res://fonts/Montserrat-Light.ttf" id="1_fhknq"]
+[ext_resource type="StyleBox" uid="uid://bh6jfxreqob2c" path="res://Themes/Styles/hover.tres" id="2_hxojv"]
+[ext_resource type="StyleBox" uid="uid://g1bdd5053tvb" path="res://Themes/Styles/pressed.tres" id="3_mlqkf"]
+[ext_resource type="StyleBox" uid="uid://dh4bo4ji5mogq" path="res://Themes/Styles/panel.tres" id="5_h4df6"]
+[ext_resource type="StyleBox" uid="uid://dx5vaa5v1npl6" path="res://Themes/Styles/linedit.tres" id="5_hgpl8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_umsyy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sf3p3"]
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_fhknq")
+Button/styles/disabled = ExtResource("1_77fdp")
+Button/styles/focus = SubResource("StyleBoxEmpty_umsyy")
+Button/styles/hover = ExtResource("2_hxojv")
+Button/styles/normal = ExtResource("1_77fdp")
+Button/styles/pressed = ExtResource("3_mlqkf")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_fhknq")
+Label/styles/normal = SubResource("StyleBoxEmpty_sf3p3")
+LineEdit/colors/clear_button_color = Color(0, 0, 0, 1)
+LineEdit/colors/clear_button_color_pressed = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_uneditable_color = Color(0, 0, 0, 1)
+LineEdit/colors/selection_color = Color(0, 0, 0, 1)
+LineEdit/fonts/font = ExtResource("1_fhknq")
+LineEdit/styles/focus = ExtResource("5_hgpl8")
+LineEdit/styles/normal = ExtResource("5_hgpl8")
+Panel/styles/panel = ExtResource("5_h4df6")
+VBoxContainer/constants/separation = 20

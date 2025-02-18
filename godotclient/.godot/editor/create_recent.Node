@@ -1,3 +1,4 @@
+Panel
 LineEdit
 Button
 Label
@@ -9,6 +10,5 @@ HFlowContainer
 BoxContainer
 SplitContainer
 MarginContainer
-Panel
 TextEdit
 Control

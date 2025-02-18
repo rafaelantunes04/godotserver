@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxnhr8pja2um2"]
+[gd_scene load_steps=5 format=3 uid="uid://cxnhr8pja2um2"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_rphlw"]
+[ext_resource type="Texture2D" uid="uid://damxhdfre6xgb" path="res://main_menu_bg.png" id="2_c15kw"]
+[ext_resource type="Theme" uid="uid://cy027krcedla1" path="res://Themes/main_theme.tres" id="3_sowny"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r0hed"]
+texture = ExtResource("2_c15kw")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,29 +14,47 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_sowny")
 script = ExtResource("1_rphlw")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_r0hed")
 
 [node name="VContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.417535
-anchor_top = 0.422068
-anchor_right = 0.582465
-anchor_bottom = 0.577932
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -94.0
+offset_right = 148.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+theme = ExtResource("3_sowny")
 
 [node name="StartButton" type="Button" parent="VContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_sowny")
 text = "Start"
 
 [node name="nameButton" type="Button" parent="VContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Nada neste Momento"
 
 [node name="QuitButton" type="Button" parent="VContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 text = "Quit"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VContainer"]
@@ -44,7 +67,9 @@ text = "Username:"
 [node name="Name" type="LineEdit" parent="VContainer/HBoxContainer"]
 layout_mode = 2
 placeholder_text = "Example"
+max_length = 16
 expand_to_text_length = true
+draw_control_chars = true
 
 [connection signal="pressed" from="VContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VContainer/QuitButton" to="." method="_on_quit_button_pressed"]

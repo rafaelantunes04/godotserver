@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1739647793
+::res://::1739914643
 icon.svg::CompressedTexture2D::4579479260226908291::1739628249::1739628441::1::::<><>::
 main_menu_bg.png::CompressedTexture2D::7185443741592048705::1739628249::1739628446::1::::<><>::
 ::res://fonts/::1739628441
@@ -12,11 +12,11 @@ Montserrat-Medium.ttf::FontFile::4180075315670505837::1739628249::1739628441::1:
 Montserrat-Regular.ttf::FontFile::402908464511985014::1739628249::1739628441::1::::<><>::
 Montserrat-SemiBold.ttf::FontFile::2875126079648477593::1739628249::1739628441::1::::<><>::
 Montserrat-Thin.ttf::FontFile::2749307695269817898::1739628249::1739628441::1::::<><>::
-::res://scenes/::1739647697
-client.tscn::PackedScene::1645163915879571585::1739647697::0::1::::<><>::res://scripts/client/Client.cs
-::res://scenes/main_menu/::1739647697
-address_popup.tscn::PackedScene::1863827275748914235::1739647697::0::1::::<><>::res://scripts/ui/address_popup.gd
-main_menu.tscn::PackedScene::6414478816162097083::1739647697::0::1::::<><>::res://scripts/ui/main_menu.gd
+::res://scenes/::1739914193
+client.tscn::PackedScene::1645163915879571585::1739914193::0::1::::<><>::res://scripts/client/Client.cs
+::res://scenes/main_menu/::1739914193
+address_popup.tscn::PackedScene::1863827275748914235::1739914193::0::1::::<><>::res://scripts/ui/address_popup.gd<>uid://cy027krcedla1::::res://Themes/main_theme.tres<>uid://cficx48yo08ax::::res://fonts/Montserrat-Light.ttf
+main_menu.tscn::PackedScene::6414478816162097083::1739914193::0::1::::<><>::res://scripts/ui/main_menu.gd<>uid://damxhdfre6xgb::::res://main_menu_bg.png<>uid://cy027krcedla1::::res://Themes/main_theme.tres
 ::res://scripts/::1739628249
 ::res://scripts/client/::1739631794
 Client.cs::CSharpScript::-1::1739630460::0::1::::<>Node<>::
@@ -26,3 +26,11 @@ PlayerInfo.cs::CSharpScript::-1::1739630460::0::1::::<><>::
 ::res://scripts/ui/::1739647499
 address_popup.gd::GDScript::-1::1739645866::0::1::::<>Control<>::
 main_menu.gd::GDScript::-1::1739647499::0::1::::<>Control<>::
+::res://Themes/::1739914046
+main_theme.tres::Theme::6510680114351648286::1739914046::0::1::::<><>::uid://wpkfemwym7od::::res://Themes/Styles/normal.tres<>uid://cficx48yo08ax::::res://fonts/Montserrat-Light.ttf<>uid://bh6jfxreqob2c::::res://Themes/Styles/hover.tres<>uid://g1bdd5053tvb::::res://Themes/Styles/pressed.tres<>uid://dh4bo4ji5mogq::::res://Themes/Styles/panel.tres<>uid://dx5vaa5v1npl6::::res://Themes/Styles/linedit.tres
+::res://Themes/Styles/::1739914046
+hover.tres::StyleBoxFlat::2942294915942007244::1739913056::0::1::::<><>::
+linedit.tres::StyleBoxFlat::8836811891557486841::1739914046::0::1::::<><>::
+normal.tres::StyleBoxFlat::1575736554908012287::1739911493::0::1::::<><>::
+panel.tres::StyleBoxFlat::7710538167005153812::1739913056::0::1::::<><>::
+pressed.tres::StyleBoxFlat::474873162899511415::1739912156::0::1::::<><>::

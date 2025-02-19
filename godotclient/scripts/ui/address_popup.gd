@@ -1,21 +1,21 @@
 extends Control
 
-@onready var IPField = $CenterContainer/ColorRect/VBoxContainer/HBoxContainer/IP
-@onready var portField = $CenterContainer/ColorRect/VBoxContainer/HBoxContainer/Port
-var ClientScene = load("res://scenes/client.tscn")
+@onready var IPField = $CenterContainer/Panel/VBoxContainer/HBoxContainer/IP
+@onready var portField = $CenterContainer/Panel/VBoxContainer/HBoxContainer/Port
+var ChatScene = load("res://scenes/chat_room/chat_room.tscn")
 
 
 func _on_join_button_pressed() -> void:
-	var ip = IPField.text
+	var ip = IPField.text 
 	var port = portField.text
-	var clientInstance = ClientScene.instantiate()
-	clientInstance.Username = get_parent().username
-	clientInstance.Address = ip
+	var chatInstance = ChatScene.instantiate()
+	chatInstance.Username = get_parent().username
+	chatInstance.Address = ip
 	if port.is_valid_int(): 
-		clientInstance.Port = int(port)
+		chatInstance.Port = int(port)
 		get_parent().queue_free();
-		get_tree().root.add_child(clientInstance);
-		get_tree().current_scene = clientInstance;
+		get_tree().root.add_child(chatInstance);
+		get_tree().current_scene = chatInstance;
 	else:
 		print("Write a Valid Port")
 	

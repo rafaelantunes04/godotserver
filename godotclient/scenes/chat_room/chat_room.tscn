@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://ybhb0xv5ysls"]
+
+[ext_resource type="Theme" uid="uid://cy027krcedla1" path="res://Themes/main_theme.tres" id="1_g3ksk"]
+[ext_resource type="Script" path="res://scripts/chat/chat_room.gd" id="2_2ypj2"]
+[ext_resource type="PackedScene" uid="uid://xo6uynhy4jn2" path="res://scenes/client.tscn" id="2_3x4uh"]
+[ext_resource type="Texture2D" uid="uid://damxhdfre6xgb" path="res://main_menu_bg.png" id="2_dfvs7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n7c5i"]
+texture = ExtResource("2_dfvs7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrxcx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hj6f"]
+
+[node name="ChatRoom" type="Control" node_paths=PackedStringArray("client")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_g3ksk")
+script = ExtResource("2_2ypj2")
+client = NodePath("Client")
+
+[node name="background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_n7c5i")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="ChatBox" type="RichTextLabel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
+
+[node name="ChatWrite" type="LineEdit" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_nrxcx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2hj6f")
+placeholder_text = "Write a Message"
+
+[node name="Client" parent="." instance=ExtResource("2_3x4uh")]
+
+[connection signal="chatSend" from="." to="." method="_on_chat_send"]
+[connection signal="ChatRec" from="Client" to="." method="_on_client_chat_rec"]

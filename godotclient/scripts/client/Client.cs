@@ -4,6 +4,9 @@ using Newtonsoft.Json;
 namespace Rb {
 	public partial class Client : Node
 	{
+		[Signal]
+		public delegate void ChatRecEventHandler(string contents);
+		
 		private NetworkManager networkManager = new NetworkManager();
 		private PlayerInfo playerInfo = new PlayerInfo();
 
@@ -24,24 +27,22 @@ namespace Rb {
 			_ = networkManager.StartReceiver(HandlePacket);
 		}
 
-		public override void _Process(double delta)
+		public void SendMessage(string message)
 		{
-			if (Input.IsActionJustPressed("mandar"))
-			{
-				networkManager.SendPacket(new NetworkManager.Packet
+			networkManager.SendPacket(new NetworkManager.Packet
 				{
 					packet_type = NetworkManager.PacketType.Chat,
-					content = "Teste"
+					content = message
 				});
-			}
 		}
-
+		
 		private void HandlePacket(NetworkManager.Packet packet)
 		{
 			switch (packet.packet_type)
 			{
 				case NetworkManager.PacketType.Chat:
 					GD.Print(packet.content);
+					EmitSignal(SignalName.ChatRec, packet.content);
 					break;
 
 				case NetworkManager.PacketType.Sync:

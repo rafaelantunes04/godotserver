@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cy027krcedla1"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://cy027krcedla1"]
 
 [ext_resource type="StyleBox" uid="uid://wpkfemwym7od" path="res://Themes/Styles/normal.tres" id="1_77fdp"]
 [ext_resource type="FontFile" uid="uid://cficx48yo08ax" path="res://fonts/Montserrat-Light.ttf" id="1_fhknq"]
@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://g1bdd5053tvb" path="res://Themes/Styles/pressed.tres" id="3_mlqkf"]
 [ext_resource type="StyleBox" uid="uid://dh4bo4ji5mogq" path="res://Themes/Styles/panel.tres" id="5_h4df6"]
 [ext_resource type="StyleBox" uid="uid://dx5vaa5v1npl6" path="res://Themes/Styles/linedit.tres" id="5_hgpl8"]
+[ext_resource type="FontFile" uid="uid://cxblg6ijlmv04" path="res://fonts/Montserrat-Bold.ttf" id="7_p2y3h"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_umsyy"]
 
@@ -57,4 +58,7 @@ LineEdit/fonts/font = ExtResource("1_fhknq")
 LineEdit/styles/focus = ExtResource("5_hgpl8")
 LineEdit/styles/normal = ExtResource("5_hgpl8")
 Panel/styles/panel = ExtResource("5_h4df6")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/fonts/bold_font = ExtResource("7_p2y3h")
+RichTextLabel/fonts/normal_font = ExtResource("1_fhknq")
 VBoxContainer/constants/separation = 20
